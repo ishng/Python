@@ -1,0 +1,30 @@
+class Typhoon_Directory:
+    def __init__(self):
+        self.directory = {"Agaton": ["March", 95],
+                          "Basyang": ["July", 130],
+                          "Caloy": ["July", 65],
+                          "Domeng": ["August", 65],
+                          "Ester": ["August", 95],
+                          "Florita": ["August", 55],
+                          "Glenda": ["August", 175],
+                          "Henry": ["September",65],
+                          "Inday": ["September", 195],
+                          "Juan": ["October", 305]}
+    
+    def Month(self,Typhoon_name):
+        print(f"{Typhoon_name} Month: {self.directory[Typhoon_name][0]}")
+    def Speed(self,Typhoon_name):
+        print(f"{Typhoon_name} Speed: {self.directory[Typhoon_name][1]}")
+    def AddTyphoon(self, add_name, month, speed):
+        self.directory[add_name] = month, speed
+        
+directory = Typhoon_Directory()
+i=input("Enter Name of Typhoon: ")
+directory.Month("Juan")
+directory.Speed("Juan")
+x = input("Enter New Name:  ")
+y = input("Month: ")
+z = input("Speed: ")
+directory.AddTyphoon(x,y,z)
+directory.Month(x)
+directory.Speed(x)
