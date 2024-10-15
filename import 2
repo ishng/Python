@@ -1,0 +1,5 @@
+main.py
+import other as o
+
+if __name__=="__main__":
+    o.print_sum(4,5)
