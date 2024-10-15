@@ -1,0 +1,7 @@
+other.py
+
+def print_sum(num1,num2):
+    print(num1+num2)
+    
+if __name__=="--main--":
+    print_sum(4,5)
