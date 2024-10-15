@@ -5,12 +5,14 @@ class Main_Window (QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("My App")
-        self.setFixedSize(400,300)
+        self.setGeometry(100,60,1000,800)
         self.Label1=QLabel()
         self.Label1.setText("Hello World")
-        self.Button=QPushButton("Press Me")
+        self.setCentralWidget(self.Label1)
+        self.Button=QPushButton("Press Me",self)
+        self.Button.setFixedSize(100,20)
         self.Button.clicked.connect(self.ButtonMethod)
-        self.setCentralWidget(self.Button)
+      
     def ButtonMethod(self):
         self.Label1.setText("HI!")
 
