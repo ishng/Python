@@ -1,0 +1,22 @@
+import sys 
+from PyQt5.QtWidgets import *
+class MainWindow (QMainWindow):
+    def __init__(self):
+        super(MainWindow, self).__init__()
+        MainWidget = QWidget()
+        Layout = QFormLayout()
+        MainWidget.setLayout(Layout)
+        self.setCentralWidget(MainWidget)
+        
+        r1 =QRadioButton("Male")
+        r2 = QRadioButton("Female")
+        HBox = QHBoxLayout()        
+        HBox.addWidget(r1)
+        HBox.addWidget(r2)
+        Layout.addRow(QLabel("Gender :"), HBox)
+        Layout.addRow(QPushButton("Submit"),QPushButton("Cancel"))
+if __name__=='__main__':
+    app=QApplication(sys.argv)
+    Main = MainWindow()
+    Main.show()
+    app.exec()
