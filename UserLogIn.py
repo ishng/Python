@@ -10,6 +10,7 @@ class MainWindow (QMainWindow):
         self.setCentralWidget(MainWidget)
         self.UserLineEdit = QLineEdit()
         self.PassLineEdit = QLineEdit()
+         self.PassLineEdit.setEchoMode(QLineEdit.Password)
         self.submitButton = QPushButton("Submit")
         self.CancelButton = QPushButton("Cancel")
         Layout.addRow(QLabel("Username: "), self.UserLineEdit)
