@@ -27,7 +27,7 @@ class MainWindow(QMainWindow):
     def Log_In(self):
         username = self.UserLineEdit.text()
         password = self.PassLineEdit.text()
-        if username in Info_item.dict and password == Info_item.dict[username]:
+        if username in Info_item.mydict and password == Info_item.dict[username]:
 
             if not self.Label.Visible():
                 self.Label = QLabel("Log In Successfully!!",self)
