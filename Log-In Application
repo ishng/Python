@@ -1,35 +1,46 @@
 import sys
 from PyQt5.QtWidgets import *
 
+class Info():
+    def __init__(self):
+        self.mydict = {"ishng!":"2005"}
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
-        self.resize(350, 50)
-        MainWidget = QWidget()
-        Layout = QFormLayout()
-        MainWidget.setLayout(Layout)
+        self.Fixedsize(350, 50)
+        self.MainWidget = QWidget()
+        self.Layout = QFormLayout()
+        self.MainWidget.setLayout(QFormLayout)
         self.setCentralWidget(MainWidget)
         self.UserLineEdit = QLineEdit()
         self.PassLineEdit = QLineEdit()
+
         self.PassLineEdit.setEchoMode(QLineEdit.Password)
         self.submitButton = QPushButton("Submit")
         self.CancelButton = QPushButton("Cancel")
-        Layout.addRow(QLabel("Username: "), self.UserLineEdit)
-        Layout.addRow(QLabel("Password: "), self.PassLineEdit)
-        Layout.addRow(self.submitButton, self.CancelButton)
+        self.Layout.addRow(QLabel("USERNAME: "), self.UserLineEdit)
+        self.Layout.addRow(QLabel("PASSWORD: "), self.PassLineEdit)
+        self.Layout.addRow(self.submitButton, self.CancelButton)
         self.submitButton.clicked.connect(self.LogIn)
         
     def Log_In(self):
         username = self.UserLineEdit.text()
         password = self.PassLineEdit.text()
-        if username == "Patricia" and password == "2005":
-            print("Successful Login")
-        else:
-            print("The password or username you enter is incorrect")
+        if username in Info_item.dict and password == Info_item.dict[username]:
 
+            if not self.Label.Visible():
+                self.Label = QLabel("Log In Successfully!!",self)
 
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    main = MainWindow()
-    main.show()
-    app.exec()
+                self.Label.setAlignment(Qt.AlignCenter)
+                self.Layout.addRow(self.Label)
+            else :
+                if not self.Label.Visible():
+                    self.Label = QLabel("Incorrect Username or Password. Please Try Again.")
+                     self.Label.setAlignment(Qt.AlignCenter)
+                    self.Layout.addRow(self.Label)
+
+        if __name__ == '__main__':
+            app = QApplication(sys.argv)
+            main = MainWindow()
+            app.exec()
