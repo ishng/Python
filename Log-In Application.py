@@ -1,9 +1,11 @@
 import sys
+import os
 from PyQt5.QtWidgets import *
+from PyQt5.QtCore import Qt
 
-class Info():
+class Data():
     def __init__(self):
-        self.mydict = {"ishng!":"2005"}
+        self.mydict = {"Patricia":"2005"}
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -11,8 +13,8 @@ class MainWindow(QMainWindow):
         self.Fixedsize(350, 50)
         self.MainWidget = QWidget()
         self.Layout = QFormLayout()
-        self.MainWidget.setLayout(QFormLayout)
-        self.setCentralWidget(MainWidget)
+        self.MainWidget.setLayout(self.Layout)
+        self.setCentralWidget(self.MainWidget)
         self.UserLineEdit = QLineEdit()
         self.PassLineEdit = QLineEdit()
 
@@ -24,19 +26,18 @@ class MainWindow(QMainWindow):
         self.Layout.addRow(self.submitButton, self.CancelButton)
         self.submitButton.clicked.connect(self.LogIn)
         
-    def Log_In(self):
+    def LogIn(self):
         username = self.UserLineEdit.text()
         password = self.PassLineEdit.text()
-        if username in Info_item.mydict and password == Info_item.dict[username]:
+        if username in data_item.mydict and password == dataitem.dict[username]:
 
-            if not self.Label.Visible():
+            if not self.Label.isVisible():
                 self.Label = QLabel("Log In Successfully!!",self)
-
                 self.Label.setAlignment(Qt.AlignCenter)
                 self.Layout.addRow(self.Label)
             else :
-                if not self.Label.Visible():
-                    self.Label = QLabel("Incorrect Username or Password. Please Try Again.")
+                if not self.Label.isVisible():
+                    self.Label = QLabel("Incorrect Username or Password. Please Try Again.", self)
                      self.Label.setAlignment(Qt.AlignCenter)
                     self.Layout.addRow(self.Label)
 
