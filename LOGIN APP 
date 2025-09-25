@@ -1,0 +1,33 @@
+
+    tk.Button(menu, text="TMS APPLICATION", command=open_tms, **btn_style).pack(pady=10)
+    tk.Button(menu, text="HUMIDITY & TEMPERATURE", **btn_style).pack(pady=10)
+    tk.Button(menu, text="LOCK / UNLOCK SYSTEM", **btn_style).pack(pady=10)
+    tk.Button(menu, text="ITEM DETECTOR SYSTEM", **btn_style).pack(pady=10)
+    tk.Button(menu, text="DISTANCE MEASURE SYSTEM", **btn_style).pack(pady=10)
+
+    menu.mainloop()
+
+
+
+def traffic_light_control():
+    app = tk.Tk()
+    app.title("Traffic Light Control")
+    app.geometry("420x520")
+    app.configure(bg="#101820")
+
+    tk.Label(app, text="ðŸš¦ TRAFFIC LIGHT SYSTEM", font=FONT_TITLE, bg="#101820", fg="#00ffcc").pack(pady=20)
+
+    status_label = tk.Label(app, text="LIGHT: OFF", font=("Cooper Black", 16, "bold"), bg="#101820", fg="white")
+    status_label.pack(pady=15)
+
+    timer_label = tk.Label(app, text="TIMER: 0", font=("Cooper Black", 14, "bold"), bg="#101820", fg="yellow")
+    timer_label.pack(pady=10)
+
+    running = [False]
+
+  
+
+    app.mainloop()
+
+
+login_window()
