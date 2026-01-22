@@ -1,0 +1,7 @@
+print( "please type your name in : " )
+my_name = input()
+print( " Nice to meet you ", my_name )
+print( "So ", my_name , "What is your favorite food?" )
+favorite_food = input()
+print( "ah favorite food is ", favorite_food ) 
+print("Nice to meet you")
