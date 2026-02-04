@@ -1,0 +1,93 @@
+import tkinter as tk
+from tkinter import messagebox
+
+
+BG_COLOR = "#121212"   # Dark background
+FG_COLOR = "#ffffff"   # White text
+BTN_COLOR = "#00adb5"  # Teal buttons
+FONT_MAIN = ("Cooper Black", 14, "bold")
+FONT_TITLE = ("Cooper Black", 20, "bold")
+
+
+
+def login_window():
+    login = tk.Tk()
+    login.title("Login")
+    login.geometry("420x300")
+    login.configure(bg=BG_COLOR)
+
+    frame = tk.Frame(login, bg=BG_COLOR, bd=2, relief="ridge")
+    frame.pack(expand=True, padx=30, pady=30)
+
+    tk.Label(frame, text="LOGIN SYSTEM", font=FONT_TITLE, bg=BG_COLOR, fg="#00ffcc").pack(pady=15)
+
+    tk.Label(frame, text="Username:", bg=BG_COLOR, fg=FG_COLOR, font=("Cooper Black", 11)).pack(anchor="w", padx=20)
+    username_entry = tk.Entry(frame, font=("Segoe UI", 12), bd=2, relief="groove")
+    username_entry.pack(padx=20, pady=5, fill="x")
+
+    tk.Label(frame, text="Password:", bg=BG_COLOR, fg=FG_COLOR, font=("Cooper Black", 11)).pack(anchor="w", padx=20)
+    password_entry = tk.Entry(frame, show="*", font=("Segoe UI", 12), bd=2, relief="groove")
+    password_entry.pack(padx=20, pady=5, fill="x")
+
+    def verify_login():
+        username = username_entry.get()
+        password = password_entry.get()
+        if username == "Admin" and password == "welcome$":  # simple login
+            login.destroy()
+            main_menu()
+        else:
+            messagebox.showerror("Login Failed", "Invalid Username or Password")
+
+    tk.Button(frame, text="Login", font=FONT_MAIN, bg=BTN_COLOR, fg="white", relief="flat",
+              width=20, command=verify_login).pack(pady=15)
+
+    login.mainloop()
+
+
+
+def main_menu():
+    menu = tk.Tk()
+    menu.title("Main Menu")
+    menu.geometry("500x550")
+    menu.configure(bg=BG_COLOR)
+
+    tk.Label(menu, text="MAIN MENU", font=FONT_TITLE, bg=BG_COLOR, fg="#00ffcc").pack(pady=30)
+
+    def open_tms():
+        menu.destroy()
+        traffic_light_control()
+
+    btn_style = {"width": 25, "height": 2, "font": FONT_MAIN, "bg": BTN_COLOR, "fg": "white", "relief": "flat"}
+
+    tk.Button(menu, text="TMS APPLICATION", command=open_tms, **btn_style).pack(pady=10)
+    tk.Button(menu, text="HUMIDITY & TEMPERATURE", **btn_style).pack(pady=10)
+    tk.Button(menu, text="LOCK / UNLOCK SYSTEM", **btn_style).pack(pady=10)
+    tk.Button(menu, text="ITEM DETECTOR SYSTEM", **btn_style).pack(pady=10)
+    tk.Button(menu, text="DISTANCE MEASURE SYSTEM", **btn_style).pack(pady=10)
+
+    menu.mainloop()
+
+
+
+def traffic_light_control():
+    app = tk.Tk()
+    app.title("Traffic Light Control")
+    app.geometry("420x520")
+    app.configure(bg="#101820")
+
+    tk.Label(app, text="ðŸš¦ TRAFFIC LIGHT SYSTEM", font=FONT_TITLE, bg="#101820", fg="#00ffcc").pack(pady=20)
+
+    status_label = tk.Label(app, text="LIGHT: OFF", font=("Cooper Black", 16, "bold"), bg="#101820", fg="white")
+    status_label.pack(pady=15)
+
+    timer_label = tk.Label(app, text="TIMER: 0", font=("Cooper Black", 14, "bold"), bg="#101820", fg="yellow")
+    timer_label.pack(pady=10)
+
+    running = [False]
+
+  
+
+    app.mainloop()
+
+
+login_window()
